@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* > * {
+    font-family: "Poppins", cursive;
+    margin: 0;
+}
+
+
+
+
+
+.Login{
+  max-width: 100%;
+  width: 40%;
+  height: 50%;
+  display:flex;
+  border: 1px solid #e9ecef;
+  border-radius: 5px;
+  /* box-shadow: 1px 3px 10px #e9ecef; */
+  background-color: #220862;
+  margin-top: 5%;
+  margin-left: 30%;
+}
+ .Login h2{
+    margin-left: 25%;
+    color: white;
+ }
+.Login span{
+    margin-left: 5%;
+
+  color: white;
+}
+
+#LoginForm{
+  max-width: 320px;
+  width: 100vw;
+  
+}
+
+#LoginForm >  input, .btn{
+  border: 1px solid #e9ecef;
+  padding: .9em 1em;
+}
+
+#LoginForm > input:focus{
+  outline: none;
+}
+
+#LoginForm > .btn{
+  background-color: #003049;
+  color: #e9ecef;
+  font-size: 1em;
+  cursor: pointer;
+}
+#LoginForm > .form-check{
+    color:white;
+}
+
+#form >.form-label{
+    color:white;
+}
+
+.LoginInfo{
+  display: flex;
+  gap: 1em;
+}
+
+.LoginPass{
+  flex-direction: column;
+}
+
+.Login .inside{
+  margin:5%;
+  width:50%;
+  margin-left: 30%;
+  padding: 3em 0;
+}
+
+
+
+@media screen and (min-width: 860px)  {
+  .Signup .col-2 img{
+    display: initial;
+  }
+}

@@ -1,0 +1,39 @@
+.footer{
+    margin-top: 40rem;
+    height: 50%;
+    width: 116.8%;
+    position: relative;
+    padding: 6rem 0;
+    background: #220862;
+    margin-left: -20rem;
+    scroll-behavior: smooth;
+    height: 40vh;
+}
+.footer-container{
+    margin-top: -50rem;
+    max-width:60%;
+    margin:auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap:700px;
+}
+.footer.footer-container.left
+{
+    
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding:1rem;
+    margin-right: 5rem;
+}
+
+.footer.right
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding:1rem;
+    margin-right:5rem
+}

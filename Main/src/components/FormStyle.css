@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* > * {
+    font-family: "Poppins", cursive;
+    margin: 0;
+}
+
+
+
+
+
+.Signup{
+  max-width: 100%;
+  width: 50%;
+  height: 50%;
+  display:flex;
+  border: 1px solid #e9ecef;
+  border-radius: 5px;
+  /* box-shadow: 1px 3px 10px #e9ecef; */
+  background-color: #220862;
+  margin-top: 5%;
+  margin-left: 25%;
+}
+ .Signup h2{
+    color: white;
+ }
+.Signup span{
+  color: white;
+}
+
+#form{
+  max-width: 320px;
+  width: 100vw;
+  
+}
+
+#form >  input, .btn{
+  border: 1px solid #e9ecef;
+  padding: .9em 1em;
+}
+
+#form > input:focus{
+  outline: none;
+}
+
+#form > .btn{
+  background-color: #003049;
+  color: #e9ecef;
+  font-size: 1em;
+  cursor: pointer;
+}
+#form >.errors
+{
+    color:white;
+}
+
+.flex{
+  display: flex;
+  gap: 1em;
+}
+
+.flex-col{
+  flex-direction: column;
+}
+
+.Signup .col-1{
+  margin:5%;
+  width:50%;
+  padding: 3em 0;
+}
+
+.Signup .col-2 img{
+  width: 480px;
+  height: 50%;
+  object-fit: cover;
+  align-self: flex-end;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: none;
+  margin-left: -100%;
+  margin-top:100%;
+}
+
+@media screen and (min-width: 860px)  {
+  .Signup .col-2 img{
+    display: initial;
+  }
+}
