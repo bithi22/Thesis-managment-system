@@ -13,6 +13,8 @@ import Register from './components/Register'
 import UserLogin from './components/UserLogin';
 import AdminLogin from './components/AdminLogin';
 import Footer from './components/Footer';
+import { NoMatch } from './components/NoMatch';
+import Demo from './components/Demo';
 
 
 function App() {
@@ -28,11 +30,20 @@ function App() {
     </Routes>
 
     <Routes>
+      <Route path='/Demo' element={<Demo/>}/>
+    </Routes>
+
+    <Routes>
       <Route exact path='/UserLogin' element={<UserLogin/>}/>
     </Routes>
     <Routes>
       <Route exact path='/AdminLogin' element={<AdminLogin/>}/>
     </Routes>
+
+    <Routes>
+      <Route  path='*' element={<NoMatch/>}/>
+    </Routes>
+
 
     <Routes>
       <Route path='/Footer' element={<Footer/>}/>

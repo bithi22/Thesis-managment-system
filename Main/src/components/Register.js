@@ -9,9 +9,7 @@ const Register = ()=> {
         <Navbar/>
 
         <Form/>
-    
-
-   
+       
     </div>
 
   )

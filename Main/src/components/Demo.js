@@ -1,9 +1,15 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import Register from './Register'
+import Form from './Form'
 import UserLoginForm from './UserLoginForm'
 
-const UserLogin = ()=> {
+
+const Demo = ()=> {
+
+    const handleSignup=(event)=>
+    {
+        console.log("Hello Worlds")
+    }  
 
   return (
     <div>
@@ -14,4 +20,4 @@ const UserLogin = ()=> {
   )
 }
 
-export default UserLogin
+export default Demo
