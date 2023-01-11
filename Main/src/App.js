@@ -16,6 +16,8 @@ import Footer from './components/Footer';
 import { NoMatch } from './components/NoMatch';
 import Demo from './components/Demo';
 import Dashboard from './pages/dashboard/Dashboard';
+import Student from './components/Student';
+import Teacher from './components/Teacher';
 
 
 function App() {
@@ -31,7 +33,7 @@ function App() {
     </Routes>
 
     <Routes>
-      <Route path='/Demo' element={<Demo/>}/>
+      <Route path='/Demo' element={<Dashboard/>}/>
     </Routes>
 
     <Routes>
@@ -49,10 +51,21 @@ function App() {
       <Route  path='/Admin_Dashboard' element={<Dashboard/>}/>
     </Routes>
 
+    
+    <Routes>
+      <Route path='/student' element ={<Student/>}/>
+    </Routes>
+
+    <Routes>
+      <Route path='/teacher' element ={<Teacher/>}/>
+    </Routes>
+
 
     <Routes>
       <Route path='/Footer' element={<Footer/>}/>
     </Routes>
+
+    
 
    </>
     

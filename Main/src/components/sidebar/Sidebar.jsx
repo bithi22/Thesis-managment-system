@@ -23,10 +23,12 @@ const Sidebar = () => {
                 <span>Student</span>
             </li>
           </Link>
+          <Link to ="/teacher">
             <li>
                 <PersonAddAltIcon className="icon"/>
-                <span>Supervisor</span>
+                <span>Teacher</span>
             </li>
+            </Link>
             <li>
                 <DescriptionIcon className="icon"/>
                 <span>Upload Projects</span>

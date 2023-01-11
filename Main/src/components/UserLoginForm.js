@@ -63,7 +63,7 @@ export default function UserLoginForm() {
         <section>
         <div className="Signup">
             <div className="col-1">
-            <h2>User Login</h2>
+            <h2>Login</h2>
             <span>Login and keep track of your profile</span>
 
             <form id='form' className='flex flex-col my-5' on onSubmit={handleSubmit(onSubmit)}>

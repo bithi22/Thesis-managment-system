@@ -1,5 +1,5 @@
 import React, { PureComponent, useState, useEffect } from 'react'
-import FormStyle from './FormStyle.css'
+import LoginStyle from './LoginStyle.css'
 import signup from '../assets/signup.webp'
 import {useForm} from 'react-hook-form'
 import Axios from 'axios'
