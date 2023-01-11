@@ -15,6 +15,7 @@ import AdminLogin from './components/AdminLogin';
 import Footer from './components/Footer';
 import { NoMatch } from './components/NoMatch';
 import Demo from './components/Demo';
+import Dashboard from './pages/dashboard/Dashboard';
 
 
 function App() {
@@ -42,6 +43,10 @@ function App() {
 
     <Routes>
       <Route  path='*' element={<NoMatch/>}/>
+    </Routes>
+
+    <Routes>
+      <Route  path='/Admin_Dashboard' element={<Dashboard/>}/>
     </Routes>
 
 

@@ -31,6 +31,7 @@ export default function AdminLoginForm() {
             if(admin.length)
             {
                 console.log("It has data")
+                navigate('/Admin_Dashboard')
             }
             else
             {
