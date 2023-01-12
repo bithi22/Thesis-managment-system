@@ -51,7 +51,7 @@ export default function Student() {
               
 
 
-                 <input type="text" className="form-control" placeholder='email'  />
+                 <input type="email" className="form-control" placeholder='email'  />
                 <input type="text"  className="form-control" placeholder='Phone'/>
 
 

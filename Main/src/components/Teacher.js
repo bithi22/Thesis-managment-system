@@ -3,7 +3,7 @@ import React, { PureComponent, useState } from 'react'
 import './StudentFormDesign.css'
 
 
-export default function Student() {
+export default function Teacher() {
     
     return (
         <section>
@@ -35,7 +35,7 @@ export default function Student() {
 
 
 
-                <input type="text" placeholder='email'  />
+                <input type="email" placeholder='email'  />
                 <input type="text" placeholder='Phone'/>
 
 

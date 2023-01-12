@@ -18,6 +18,7 @@ import Demo from './components/Demo';
 import Dashboard from './pages/dashboard/Dashboard';
 import Student from './components/Student';
 import Teacher from './components/Teacher';
+import ThesisForm from './components/ThesisForm';
 
 
 function App() {
@@ -58,6 +59,10 @@ function App() {
 
     <Routes>
       <Route path='/teacher' element ={<Teacher/>}/>
+    </Routes>
+
+    <Routes>
+      <Route path='/uploadthesis' element ={<ThesisForm/>}/>
     </Routes>
 
 
