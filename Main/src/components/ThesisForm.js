@@ -28,6 +28,25 @@ export default function ThesisForm() {
     <input type="text" class="form-control" placeholder="Course-id"/>
   </div>
 
+  <div class="col-auto">
+    <input type="text" class="form-control" placeholder="Author-1" />
+  </div>
+  <div class="col-auto">
+  <input type="text" class="form-control" placeholder="Author-2"/>
+  </div>
+  <div class="col-auto">
+    <input type="text" class="form-control" placeholder="Author-3"/>
+  </div>
+
+  <div class="col-auto">
+    <input type="text" class="form-control" placeholder="Supervisor-1" />
+  </div>
+  <div class="col-auto">
+  <input type="text" class="form-control" placeholder="Supervisor-2"/>
+  </div>
+  <div class="col-auto">
+    <input type="text" class="form-control" placeholder="Supervisor-3"/>
+  </div>
   <div class="col-12">
     <input type="text" class="form-control my-2"  placeholder="Title"/>
   </div>
@@ -48,6 +67,10 @@ export default function ThesisForm() {
   <div class="col-md-6">
     <input type="text" class="form-control my-2" placeholder="Publication"/>
   </div>
+
+  
+
+ 
 
   <div class="col-auto">
     <input type="text" class="form-control" placeholder="Keywords" />
