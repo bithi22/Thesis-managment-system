@@ -38,16 +38,16 @@
 
 .ThesisForm{
   align-items: center;
-  max-width: 100%;
-  width: 70%;
+  max-width: 80%;
+  width: 50%;
   
   display:flex;
   border: 1px solid #e9ecef;
   border-radius: 5px;
   /* box-shadow: 1px 3px 10px #e9ecef; */
   background-color: #220862;
-  margin-top: 5%;
-  margin-left: 5%;
+  
+  
 
 }
  .ThesisForm h2{
@@ -73,7 +73,7 @@
   #formThesis{
     max-width: 70%;
     width: 150vw;
-    margin-left: 15%;
+    margin-left: 5%;
 
     
   }

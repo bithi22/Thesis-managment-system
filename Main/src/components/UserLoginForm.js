@@ -9,27 +9,7 @@ import {useNavigate} from 'react-router-dom'
 export default function UserLoginForm() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm()
     const onSubmit = data => console.log(data);
-    const handleSignup=(event)=>
-    {
-      Axios.post("http://localhost:3001/demo",{
-          username: username,
-          password: password,
-      }).then((response)=>{
-          console.log("Success in user login")
-          console.log(response)
-          setUser(response.data);
-          console.log(user.length)
-          if(user.length)
-          {
-              console.log("It has data")
-          }
-          else
-          {
-            console.log("Empty data")
-          }
-      })
-    }
-
+    
     let navigate = useNavigate();
 
     const [username,setUsername] = useState("")
@@ -51,6 +31,7 @@ export default function UserLoginForm() {
             if(user.length)
             {
                 console.log("It has data")
+                navigate('/User_Dashboard')
             }
             else
             {
@@ -63,7 +44,7 @@ export default function UserLoginForm() {
         <section>
         <div className="Signup">
             <div className="col-1">
-            <h2>Login</h2>
+            <h2>User Login</h2>
             <span>Login and keep track of your profile</span>
 
             <form id='form' className='flex flex-col my-5' on onSubmit={handleSubmit(onSubmit)}>

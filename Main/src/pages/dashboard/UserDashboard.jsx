@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
-import Sidebar from "../../components/sidebar/Sidebar";
 
 import "./dashboard.scss"
 import Axios from 'axios'
@@ -24,9 +23,7 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
-import Delete from '@material-ui/icons/Delete';
-
-import { confirm } from "react-confirm-box";
+import UserSidebar from "../../components/sidebar/UserSidebar";
 
 
 
@@ -53,7 +50,7 @@ const tableIcons = {
 
 
 
-const Dashboard = () => {
+const UserDashboard = () => {
 
   
 
@@ -94,7 +91,7 @@ const Dashboard = () => {
   return (
     <>
     <div className= "dashboard">
-      <Sidebar/>
+      <UserSidebar/>
       <div className="dashboardContainer"> <Navbar/>
       <div className="listContainer">
         
@@ -109,31 +106,8 @@ const Dashboard = () => {
             filtering: true,
             fixedColumns: {
               right:12
-            },
-          
-            
+            },           
           }}
-          actions={[
-            {
-              icon: Delete,
-              tooltip: 'Delete',
-              onClick: async (event, rowData) => {
-                const result = await confirm("Are you sure to delete the thesis?");
-                if (result) {
-                  console.log("Inside yes for remove")
-                  Axios.post("http://localhost:3001/remove_thesis",{
-                      thesis_id: rowData.thesis_id
-                  }).then(()=>{
-                      console.log("Success in remove thesis")
-                      getProjects();
-                  })
-
-                  return;
-              }
-              }
-            }
-          ]}
-          
           
           />
         </div>
@@ -145,4 +119,4 @@ const Dashboard = () => {
   );
 }
 
-export default Dashboard;
+export default UserDashboard;

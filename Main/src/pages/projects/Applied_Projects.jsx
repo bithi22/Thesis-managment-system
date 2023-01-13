@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-
-import "./dashboard.scss"
+import "./applied_projects.scss"
 import Axios from 'axios'
 import { useEffect } from "react";
 import MaterialTable from "material-table";
@@ -25,6 +24,7 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import Delete from '@material-ui/icons/Delete';
+import Done from "@mui/icons-material/Done";
 
 import { confirm } from "react-confirm-box";
 
@@ -53,37 +53,67 @@ const tableIcons = {
 
 
 
-const Dashboard = () => {
+const Upload_Projects = () => {
 
   
 
-  var [approved_projects,setApproved_Projects] = useState([]);
+  var [applied_projects,setApplied_Projects] = useState([]);
 
   const columns = [
     {title: "Thesis_id", field:"thesis_id"},
-    {title: "Title", field: "title",align: "center", render: rowData=><a href = {rowData.PDF_Link}> {rowData.title} </a> },
+    {title: "Title", field: "title",align: "center", render: rowData=><a href = {rowData.PDF}> {rowData.title} </a> },
     {title: "Course_id", field: "course_id",align: "center",emptyValue:()=><em> null </em> },
     {title: "Category", field: "category",align: "center"},
     {title: "Publication Year",field:"publication_year",align: "center"},
     {title: "Submission Date",field: "date_of_submission",type:"date"},
     {title: "Type",field:"type",align: "center"},
-    {title: "Publication",field:"publication",align: "center", emptyValue:()=><em> None </em>},
-    {title: "Authors", field: "authors"},
-    {title: "Supervisors", field: "supervisors"}
+    {title: "Publication",field:"publication",align: "center", emptyValue:()=><em> None </em>}
   ]
 
 
   const getProjects = () =>{
     console.log("Inside useEffect Dashboard")
-      Axios.post("http://localhost:3001/getApproved_Projects",
+      Axios.post("http://localhost:3001/getApplied_Projects",
       ).then((response)=>{
-          console.log("Success in getting approved_projects")
+          console.log("Success in getting applied_projects")
           console.log(response)
-          setApproved_Projects(response.data)
-          console.log(approved_projects)
+          setApplied_Projects(response.data)
+          console.log(applied_projects)
       })
   }
 
+  
+  const rejectThesis = (rowData) =>{
+    console.log("Inside accept author")
+    Axios.post("http://localhost:3001/reject_thesis",{
+      thesis_id: rowData.thesis_id
+    }).then(()=>{
+        console.log("Success in reject thesis")
+          getProjects();
+        })  
+  }
+
+  
+  const acceptSupervisor = (rowData) =>{
+    console.log("Inside accept supervisor")
+    Axios.post("http://localhost:3001/accept_supervisor",{
+      thesis_id: rowData.thesis_id
+    }).then(()=>{
+        console.log("Success in accept supervisor")
+          rejectThesis(rowData);
+        })  
+  }
+
+  
+  const acceptAuthor = (rowData) =>{
+    console.log("Inside accept author")
+    Axios.post("http://localhost:3001/accept_author",{
+      thesis_id: rowData.thesis_id
+    }).then(()=>{
+        console.log("Success in accept author")
+          acceptSupervisor(rowData);
+        })  
+  }
 
   useEffect(() => {
     console.log("Yes useEffect called")
@@ -102,29 +132,46 @@ const Dashboard = () => {
 
         <MaterialTable
           icons={tableIcons}
-          title= "Approved Projects"
-          data = {approved_projects}
+          title= "Applied Projects"
+          data = {applied_projects}
           columns = {columns}
           options={{
             filtering: true,
             fixedColumns: {
-              right:12
+              right:10
             },
-          
             
           }}
           actions={[
             {
-              icon: Delete,
-              tooltip: 'Delete',
+              icon: Done,
+              tooltip: 'Approve',
               onClick: async (event, rowData) => {
-                const result = await confirm("Are you sure to delete the thesis?");
+                const result = await confirm("Do you want to approve the thesis?");
                 if (result) {
-                  console.log("Inside yes for remove")
-                  Axios.post("http://localhost:3001/remove_thesis",{
+                  console.log("Inside yes for approve")
+                  Axios.post("http://localhost:3001/accept_thesis",{
                       thesis_id: rowData.thesis_id
                   }).then(()=>{
-                      console.log("Success in remove thesis")
+                      console.log("Success in accept thesis");
+                      acceptAuthor(rowData);
+                  })
+
+                  return;
+              }
+              }
+            },
+            {
+              icon: Delete,
+              tooltip: 'Reject',
+              onClick: async (event, rowData) => {
+                const result = await confirm("Are you sure to reject the thesis?");
+                if (result) {
+                  console.log("Inside yes for reject")
+                  Axios.post("http://localhost:3001/reject_thesis",{
+                      thesis_id: rowData.thesis_id
+                  }).then(()=>{
+                      console.log("Success in reject thesis")
                       getProjects();
                   })
 
@@ -133,7 +180,6 @@ const Dashboard = () => {
               }
             }
           ]}
-          
           
           />
         </div>
@@ -145,4 +191,4 @@ const Dashboard = () => {
   );
 }
 
-export default Dashboard;
+export default Upload_Projects;

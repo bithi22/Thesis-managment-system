@@ -16,9 +16,11 @@ import Footer from './components/Footer';
 import { NoMatch } from './components/NoMatch';
 import Demo from './components/Demo';
 import Dashboard from './pages/dashboard/Dashboard';
-import Student from './components/Student';
-import Teacher from './components/Teacher';
-import ThesisForm from './components/ThesisForm';
+import Upload_Projects from './pages/projects/Applied_Projects';
+import Student from './pages/student/Student';
+import Teacher from './pages/supervisor/Supervisor';
+import UserDashboard from './pages/dashboard/UserDashboard';
+import Apply_for_Project from './pages/projects/Apply_for_Project';
 
 
 function App() {
@@ -34,7 +36,7 @@ function App() {
     </Routes>
 
     <Routes>
-      <Route path='/Demo' element={<Dashboard/>}/>
+      <Route path='/Demo' element={<Demo/>}/>
     </Routes>
 
     <Routes>
@@ -54,23 +56,31 @@ function App() {
 
     
     <Routes>
-      <Route path='/student' element ={<Student/>}/>
+      <Route  path='/User_Dashboard' element={<UserDashboard/>}/>
+    </Routes>
+    
+    
+    <Routes>
+      <Route  path='/Apply_for_Project' element={<Apply_for_Project/>}/>
     </Routes>
 
     <Routes>
-      <Route path='/teacher' element ={<Teacher/>}/>
+      <Route  path='/Upload_Projects' element={<Upload_Projects/>}/>
     </Routes>
-
+    
+    
     <Routes>
-      <Route path='/uploadthesis' element ={<ThesisForm/>}/>
+      <Route  path='/update_student' element={<Student/>}/>
     </Routes>
 
+    
+    <Routes>
+      <Route  path='/update_teacher' element={<Teacher/>}/>
+    </Routes>
 
     <Routes>
       <Route path='/Footer' element={<Footer/>}/>
     </Routes>
-
-    
 
    </>
     
