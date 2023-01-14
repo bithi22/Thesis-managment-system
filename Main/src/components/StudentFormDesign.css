@@ -11,15 +11,16 @@
 
 .StudentForm{
   align-items: center;
-  max-width: 100%;
+  max-width: 70%;
   width: 70%;
+  
   
   display:flex;
   border: 1px solid #e9ecef;
   border-radius: 5px;
   /* box-shadow: 1px 3px 10px #e9ecef; */
   background-color: #220862;
-  margin-top: 5%;
+  margin-top: 1%;
   margin-left: 5%;
 
 }
@@ -62,6 +63,27 @@
   margin-left: 38%;
 
 }
+.AdminForm{
+  align-items: center;
+  max-width: 80%;
+  width: 50%;
+  
+  display:flex;
+  border: 1px solid #e9ecef;
+  border-radius: 5px;
+  /* box-shadow: 1px 3px 10px #e9ecef; */
+  background-color: #220862;
+  
+  
+
+}
+ .AdminForm h2{
+    color: white;
+    margin-left: 20%;
+    
+    
+ }
+ 
 
 #formStudent{
     max-width: 40%;
@@ -142,6 +164,27 @@
       width:50%;
       padding: 3em 0;
     }
+    
+  .AdminForm .col-1{
+    margin-left: 2%;
+    margin-right: 5%;
+    width:100%;
+    padding: 3em 0;
+  }
+  .AdminForm .col-2{
+      
+      margin:5%;
+      width:50%;
+      padding: 3em 0;
+    }
+    #formAdmin{
+      max-width: 70%;
+      width: 150vw;
+      margin-left: 5%;
+  
+      
+    }
+    
 
 
 

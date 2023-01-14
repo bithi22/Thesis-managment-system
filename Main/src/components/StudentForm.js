@@ -138,6 +138,8 @@ export default function StudentForm() {
 
                 <button className='btn' onClick={addStudent}>Add Student</button>
                 <button className='btn' onClick={updateStudent}> Update Student</button>
+                <button className='btn' onClick={updateStudent}> Delete Student</button>
+
 
             </form>
 

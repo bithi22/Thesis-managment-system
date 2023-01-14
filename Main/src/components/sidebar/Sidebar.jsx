@@ -30,16 +30,18 @@ const Sidebar = () => {
                 <span>Update Teachers</span>
             </li>
           </Link>
-            <Link to = "/Upload_Projects">
+            <Link to = "/upload_Projects">
             <li>
                 <DescriptionIcon className="icon"/>
                 <span>Upload Projects</span>
             </li>
             </Link>
+            <Link to="/Admin">
             <li>
                 <PersonAddAltIcon className="icon"/>
                 <span>Admin</span>
             </li>
+            </Link>
         </ul>
       </div>
     </div>

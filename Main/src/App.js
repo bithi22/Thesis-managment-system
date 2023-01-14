@@ -21,6 +21,7 @@ import Student from './pages/student/Student';
 import Teacher from './pages/supervisor/Supervisor';
 import UserDashboard from './pages/dashboard/UserDashboard';
 import Apply_for_Project from './pages/projects/Apply_for_Project';
+import AdminForm from './components/AdminForm';
 
 
 function App() {
@@ -76,6 +77,9 @@ function App() {
     
     <Routes>
       <Route  path='/update_teacher' element={<Teacher/>}/>
+    </Routes>
+    <Routes>
+      <Route  path='/Admin' element={<AdminForm/>}/>
     </Routes>
 
     <Routes>

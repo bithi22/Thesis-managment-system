@@ -75,7 +75,20 @@ export default function TeacherForm() {
                 <input type="text" placeholder='Designation' onChange={(event)=> {
                     setDesignation(event.target.value)
                 }}/>
-                <input type="date" placeholder='Date of Joining' onChange={(event)=> {
+                  <input type="text" placeholder='Specialization' onChange={(event)=> {
+                    setDesignation(event.target.value)
+                }}/>
+                   <input type="text" placeholder='Specialization' onChange={(event)=> {
+                    setDesignation(event.target.value)
+                }}/>
+                   <input type="text" placeholder='Specialization' onChange={(event)=> {
+                    setDesignation(event.target.value)
+                }}/>
+                 
+                 
+  
+
+                <input type="text" placeholder='Date of Joining' onChange={(event)=> {
                     setDate_of_joining(event.target.value)
                 }}/>
                 <input type="number" placeholder='Salary' onChange={(event)=> {
@@ -90,6 +103,8 @@ export default function TeacherForm() {
 
                 <button className='btn' onClick={addTeacher}>Add Teacher</button>
                 <button className='btn' onClick={updateTeacher}> Update Teacher</button>
+                <button className='btn' onClick={updateTeacher}> Delete Teacher</button>
+
 
             </form>
 
