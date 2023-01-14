@@ -24,10 +24,24 @@ const UserSidebar = () => {
                 <span>Upload Projects</span>
             </li>
             </Link>
+            <Link to = "/Pending_Projects">
             <li>
-                <PersonAddAltIcon className="icon"/>
-                <span>Admin</span>
+                <DescriptionIcon className="icon"/>
+                <span>Pending Projects</span>
             </li>
+            </Link>
+            <Link to = "/Supervisor_List">
+            <li>
+                <DescriptionIcon className="icon"/>
+                <span>Supervisors List</span>
+            </li>
+            </Link>
+            <Link to = "/">
+            <li>
+                <DescriptionIcon className="icon"/>
+                <span>Logout</span>
+            </li>
+            </Link>
         </ul>
       </div>
     </div>

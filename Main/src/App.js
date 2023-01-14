@@ -21,7 +21,11 @@ import Student from './pages/student/Student';
 import Teacher from './pages/supervisor/Supervisor';
 import UserDashboard from './pages/dashboard/UserDashboard';
 import Apply_for_Project from './pages/projects/Apply_for_Project';
+
 import AdminForm from './components/AdminForm';
+import Pending_Projects from './pages/pending_projects/Pending_Projects';
+import SupervisorList from './pages/supervisor/SupervisorList';
+
 
 
 function App() {
@@ -43,6 +47,7 @@ function App() {
     <Routes>
       <Route exact path='/UserLogin' element={<UserLogin/>}/>
     </Routes>
+
     <Routes>
       <Route exact path='/AdminLogin' element={<AdminLogin/>}/>
     </Routes>
@@ -68,7 +73,15 @@ function App() {
     <Routes>
       <Route  path='/Upload_Projects' element={<Upload_Projects/>}/>
     </Routes>
+
+    <Routes>
+      <Route  path='/Pending_Projects' element={<Pending_Projects/>}/>
+    </Routes>
     
+    
+    <Routes>
+      <Route  path='/Supervisor_List' element={<SupervisorList/>}/>
+    </Routes>
     
     <Routes>
       <Route  path='/update_student' element={<Student/>}/>
