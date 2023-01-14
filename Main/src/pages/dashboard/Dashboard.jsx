@@ -66,10 +66,12 @@ const Dashboard = () => {
     {title: "Category", field: "category",align: "center"},
     {title: "Publication Year",field:"publication_year",align: "center"},
     {title: "Submission Date",field: "date_of_submission",type:"date"},
-    {title: "Type",field:"type",align: "center"},
     {title: "Publication",field:"publication",align: "center", emptyValue:()=><em> None </em>},
     {title: "Authors", field: "authors"},
-    {title: "Supervisors", field: "supervisors"}
+    {title: "Supervisors", field: "supervisors"},
+    {title: "Keywords",field: "keywords"},
+    {title: "Type",field:"type",align: "center"},
+
   ]
 
 
@@ -108,7 +110,7 @@ const Dashboard = () => {
           options={{
             filtering: true,
             fixedColumns: {
-              right:12
+              right:15
             },
           
             

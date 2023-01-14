@@ -21,11 +21,12 @@ import Student from './pages/student/Student';
 import Teacher from './pages/supervisor/Supervisor';
 import UserDashboard from './pages/dashboard/UserDashboard';
 import Apply_for_Project from './pages/projects/Apply_for_Project';
-
-import AdminForm from './components/AdminForm';
 import Pending_Projects from './pages/pending_projects/Pending_Projects';
 import SupervisorList from './pages/supervisor/SupervisorList';
-
+import StudentList from './pages/student/StudentList';
+import AdminSupervisorList from './pages/supervisor/AdminSupervisorList';
+import Admin from './pages/admin/Admin';
+import AdminList from './pages/admin/AdminList';
 
 
 function App() {
@@ -83,6 +84,15 @@ function App() {
       <Route  path='/Supervisor_List' element={<SupervisorList/>}/>
     </Routes>
     
+    
+    <Routes>
+      <Route  path='/Teacher_List' element={<AdminSupervisorList/>}/>
+    </Routes>
+    
+    <Routes>
+      <Route  path='/Student_List' element={<StudentList/>}/>
+    </Routes>
+
     <Routes>
       <Route  path='/update_student' element={<Student/>}/>
     </Routes>
@@ -91,8 +101,15 @@ function App() {
     <Routes>
       <Route  path='/update_teacher' element={<Teacher/>}/>
     </Routes>
+
+    
     <Routes>
-      <Route  path='/Admin' element={<AdminForm/>}/>
+      <Route  path='/Admin' element={<Admin/>}/>
+    </Routes>
+    
+    
+    <Routes>
+      <Route  path='/Admin_List' element={<AdminList/>}/>
     </Routes>
 
     <Routes>

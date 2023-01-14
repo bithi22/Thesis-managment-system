@@ -40,6 +40,13 @@ export default function ThesisForm() {
 
   const checkAuthor1 = (event)=>
   {
+      if(title === "" || category === "" || PDF === "" || publication_year === "" || type === "" ||
+             date_of_submission === "")
+      {
+          alert("Please insert necessary data")
+          return ;
+      }
+      
       console.log("Inside check author 1")
       if(author1_id==="")
       {

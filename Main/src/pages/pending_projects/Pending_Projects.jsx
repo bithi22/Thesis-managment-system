@@ -23,6 +23,7 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import UserSidebar from "../../components/sidebar/UserSidebar";
+import { Button } from "@mui/material";
 
 
 
@@ -54,6 +55,7 @@ const Pending_Projects = () => {
   
 
   var [applied_projects,setApplied_Projects] = useState([]);
+  const [student_id,setStudent_id] = useState("")
 
   const columns = [
     {title: "Thesis_id", field:"thesis_id"},
@@ -71,8 +73,10 @@ const Pending_Projects = () => {
 
 
   const getProjects = () =>{
-    console.log("Inside useEffect Dashboard")
-      Axios.post("http://localhost:3001/getPending_Projects",
+    console.log("Inside user getProjects")
+      Axios.post("http://localhost:3001/getPending_Projects",{
+        student_id: student_id
+      }
       ).then((response)=>{
           console.log("Success in getting pending_projects")
           console.log(response)
@@ -81,17 +85,19 @@ const Pending_Projects = () => {
       })
   }
 
-  useEffect(() => {
-    console.log("Yes useEffect called")
-    getProjects();
-  }, []);
-
 
   return (
     <>
     <div className= "dashboard">
       <UserSidebar/>
       <div className="dashboardContainer"> <Navbar/>
+      <button className='btn' onClick={getProjects}>Get Projects</button>
+      <input type= "text" placeholder="Enter your student_id" onChange={(event)=> {
+                    setStudent_id(event.target.value)
+                }}>
+
+      </input>
+
       <div className="listContainer">
         
         <div>

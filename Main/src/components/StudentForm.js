@@ -3,7 +3,7 @@ import React, { PureComponent, useState } from 'react'
 import './StudentFormDesign.css'
 import {useForm} from 'react-hook-form'
 import Axios from 'axios'
-
+import { confirm } from 'react-confirm-box'
 
 export default function StudentForm() {
 
@@ -15,10 +15,18 @@ export default function StudentForm() {
       console.log("Hello Worlds")
   }
 
-  const addStudent=(event)=>
+  const addStudent= async (event)=>
   {
-      console.log("Inside add students")
-      Axios.post("http://localhost:3001/addStudent",{
+    if(student_id === "" || roll === "" || semester === 0 || batch <= 0 || year <=0 || session === "")
+    {
+        alert("Please insert necessary/valid data")
+        return ;
+    }
+    const result = await confirm("Are you sure to add the student?")
+    if(result)
+    {
+        console.log("Inside add students")
+        Axios.post("http://localhost:3001/addStudent",{
             student_id: student_id,
             roll: roll,
             email: email,
@@ -32,10 +40,21 @@ export default function StudentForm() {
             console.log(response)
             alert(response.data)
         })
+    }
+      
   }
 
-  const updateStudent=(event)=>
+  const updateStudent = async (event)=>
   {
+    if(student_id === "" || roll === "" || semester === 0 || batch <= 0 || year <1990 || session === "")
+    {
+        alert("Please insert necessary data")
+        return ;
+    }
+
+    const result = await confirm(`Are you sure to update student_id ${student_id}?`)
+    if(result)
+    {    
       console.log("Inside Update Students")
       Axios.post("http://localhost:3001/updateStudent",{
             student_id: student_id,
@@ -51,16 +70,39 @@ export default function StudentForm() {
             console.log(response)
             alert(response.data)
         })
+    }
+  }
+
+  
+  const deleteStudent = async (event)=>
+  {
+    if(student_id === "")
+    {
+        alert("Student_id can't be empty")
+        return ;
+    }
+
+    const result = await confirm(`Are you sure to delete student_id ${student_id}? All the thesis of his/her will be lost`)
+    if(result)
+    {    
+      console.log("Inside delete Students")
+      Axios.post("http://localhost:3001/deleteStudent",{
+            student_id: student_id,
+        }).then((response)=>{
+            console.log(response)
+            alert(response.data)
+        })
+    }
   }
 
   const [student_id,setStudent_id] = useState("")
   const [roll,setRoll] = useState("")
   const [name,setName] = useState("")
   const [email,setEmail] = useState("")
-  const [semester,setSemester] = useState(1)
-  const [year,setYear] = useState(1)
-  const [batch,setBatch] = useState(1)
-  const [phone,setPhone] = useState(1)
+  const [semester,setSemester] = useState(0)
+  const [year,setYear] = useState(0)
+  const [batch,setBatch] = useState(0)
+  const [phone,setPhone] = useState(0)
   const [session,setSession] = useState("")
     
     return (
@@ -138,8 +180,7 @@ export default function StudentForm() {
 
                 <button className='btn' onClick={addStudent}>Add Student</button>
                 <button className='btn' onClick={updateStudent}> Update Student</button>
-                <button className='btn' onClick={updateStudent}> Delete Student</button>
-
+                <button className='btn' onClick={deleteStudent}> Delete Student</button>
 
             </form>
 

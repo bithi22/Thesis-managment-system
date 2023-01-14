@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
-
-import "./dashboard.scss"
+import "./student.scss"
 import Axios from 'axios'
 import { useEffect } from "react";
 import MaterialTable from "material-table";
+import Sidebar from "../../components/sidebar/Sidebar";
 
 import { forwardRef } from 'react';
 
@@ -23,7 +23,6 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
-import UserSidebar from "../../components/sidebar/UserSidebar";
 
 
 
@@ -50,66 +49,60 @@ const tableIcons = {
 
 
 
-const UserDashboard = () => {
+const StudentList = () => {
 
-  
 
-  var [approved_projects,setApproved_Projects] = useState([]);
+  var [studentList,setStudentList] = useState([]);
 
   const columns = [
-    {title: "Thesis_id", field:"thesis_id"},
-    {title: "Title", field: "title",align: "center", render: rowData=><a href = {rowData.PDF_Link}> {rowData.title} </a> },
-    {title: "Course_id", field: "course_id",align: "center",emptyValue:()=><em> null </em> },
-    {title: "Category", field: "category",align: "center"},
-    {title: "Publication Year",field:"publication_year",align: "center"},
-    {title: "Submission Date",field: "date_of_submission",type:"date"},
-    {title: "Type",field:"type",align: "center"},
-    {title: "Publication",field:"publication",align: "center", emptyValue:()=><em> None </em>},
-    {title: "Authors", field: "authors"},
-    {title: "Supervisors", field: "supervisors"},
-    {title: "Keywords", field: "keywords"}
+    {title: "Student_id", field:"student_id"},
+    {title: "Name", field: "name",align: "center"},
+    {title: "Roll", field: "roll",align: "center"},
+    {title: "Session",field: "reg_session"},
+    {title: "Year",field: "year"},
+    {title: "Semester" , field: "semester"},
+    {title: "Batch", field: "Batch"},
+    {title: "Email",field:"email"},
+    {title: "Phone",field:"phone"},
   ]
 
 
-  const getProjects = () =>{
-    console.log("Inside useEffect Dashboard")
-      Axios.post("http://localhost:3001/getApproved_Projects",
+  const getStudentList = () =>{
+    console.log("Inside useEffect StudentList")
+      Axios.post("http://localhost:3001/getStudent",
       ).then((response)=>{
-          console.log("Success in getting approved_projects")
+          console.log("Success in getting students")
           console.log(response)
-          setApproved_Projects(response.data)
-          console.log(approved_projects)
+          setStudentList(response.data)
+          console.log(studentList)
       })
   }
 
-
   useEffect(() => {
     console.log("Yes useEffect called")
-    getProjects();
+    getStudentList();
   }, []);
 
 
   return (
     <>
     <div className= "dashboard">
-      <UserSidebar/>
+      <Sidebar/>
       <div className="dashboardContainer"> <Navbar/>
       <div className="listContainer">
         
         <div>
-
         <MaterialTable
           icons={tableIcons}
-          title= "Approved Projects"
-          data = {approved_projects}
+          title= "Students List"
+          data = {studentList}
           columns = {columns}
           options={{
             filtering: true,
             fixedColumns: {
-              right:12
-            },           
-          }}
-          
+            },
+            
+          }}          
           />
         </div>
         
@@ -120,4 +113,4 @@ const UserDashboard = () => {
   );
 }
 
-export default UserDashboard;
+export default StudentList;

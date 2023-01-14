@@ -18,6 +18,23 @@ const Sidebar = () => {
                 <span>Dashboard</span>
             </li>
           </Link>
+
+          
+          <Link to = "/Student_List">
+            <li>
+                <PersonAddAltIcon className="icon"/>
+                <span>Student List</span>
+            </li>
+          </Link>
+
+          
+          <Link to = "/Teacher_List">
+            <li>
+                <PersonAddAltIcon className="icon"/>
+                <span>Teachers List</span>
+            </li>
+          </Link>
+
           <Link to = "/update_student">
             <li>
                 <PersonAddAltIcon className="icon"/>
@@ -30,16 +47,29 @@ const Sidebar = () => {
                 <span>Update Teachers</span>
             </li>
           </Link>
-            <Link to = "/upload_Projects">
+            <Link to = "/Upload_Projects">
             <li>
                 <DescriptionIcon className="icon"/>
-                <span>Upload Projects</span>
+                <span>Applied Projects</span>
             </li>
             </Link>
-            <Link to="/Admin">
+            <Link to = "/Admin">
             <li>
                 <PersonAddAltIcon className="icon"/>
-                <span>Admin</span>
+                <span>Update Admin</span>
+            </li>
+            </Link>
+            
+            <Link to = "/Admin_List">
+            <li>
+                <PersonAddAltIcon className="icon"/>
+                <span>Admin List</span>
+            </li>
+            </Link>
+            <Link to = "/">
+            <li>
+                <PersonAddAltIcon className="icon"/>
+                <span>Logout</span>
             </li>
             </Link>
         </ul>

@@ -61,19 +61,21 @@ const Upload_Projects = () => {
 
   const columns = [
     {title: "Thesis_id", field:"thesis_id"},
-    {title: "Title", field: "title",align: "center", render: rowData=><a href = {rowData.PDF}> {rowData.title} </a> },
+    {title: "Title", field: "title",align: "center", render: rowData=><a href = {rowData.PDF_Link}> {rowData.title} </a> },
     {title: "Course_id", field: "course_id",align: "center",emptyValue:()=><em> null </em> },
     {title: "Category", field: "category",align: "center"},
     {title: "Publication Year",field:"publication_year",align: "center"},
     {title: "Submission Date",field: "date_of_submission",type:"date"},
+    {title: "Authors", field: "authors"},
+    {title: "Supervisors",field: "supervisors"},
+    {title: "Keywords" , field: "keywords"},
     {title: "Type",field:"type",align: "center"},
-    {title: "Publication",field:"publication",align: "center", emptyValue:()=><em> None </em>}
   ]
 
 
   const getProjects = () =>{
     console.log("Inside useEffect Dashboard")
-      Axios.post("http://localhost:3001/getApplied_Projects",
+      Axios.post("http://localhost:3001/getPending_Projects",
       ).then((response)=>{
           console.log("Success in getting applied_projects")
           console.log(response)
@@ -97,6 +99,17 @@ const Upload_Projects = () => {
   const acceptSupervisor = (rowData) =>{
     console.log("Inside accept supervisor")
     Axios.post("http://localhost:3001/accept_supervisor",{
+      thesis_id: rowData.thesis_id
+    }).then(()=>{
+        console.log("Success in accept supervisor")
+          acceptKeyword(rowData);
+        })  
+  }
+
+  
+  const acceptKeyword = (rowData) =>{
+    console.log("Inside accept keyword")
+    Axios.post("http://localhost:3001/accept_keyword",{
       thesis_id: rowData.thesis_id
     }).then(()=>{
         console.log("Success in accept supervisor")
@@ -138,7 +151,7 @@ const Upload_Projects = () => {
           options={{
             filtering: true,
             fixedColumns: {
-              right:10
+              right:13
             },
             
           }}

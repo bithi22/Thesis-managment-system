@@ -31,9 +31,15 @@ export default function Form() {
             name:name,
         }).then((response)=>{
             console.log(response.data)
-
-            //alert("Your account has been created successfully")
-            //navigate('/UserLogin')
+            if(response.data === true)
+            {
+                alert("Your account has been created successfully")
+                navigate('/UserLogin')
+            }
+            else
+            {
+                alert(response.data)
+            }
         })
     }
 

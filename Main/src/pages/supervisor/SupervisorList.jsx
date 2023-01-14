@@ -62,7 +62,7 @@ const SupervisorList = () => {
     {title: "Joining Date (mm/dd/yyyy)",field: "date_of_joining",type:"date"},
     {title: "Email",field:"email"},
     {title: "Phone",field:"phone"},
-    {title: "Expertise",field:"expertise"},
+    {title: "Specializations",field:"expertise"},
   ]
 
 
