@@ -29,8 +29,11 @@ export default function Form() {
             password: password,
             email: email,
             name:name,
-        }).then(()=>{
-            console.log("Success")
+        }).then((response)=>{
+            console.log(response.data)
+
+            //alert("Your account has been created successfully")
+            //navigate('/UserLogin')
         })
     }
 

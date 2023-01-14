@@ -36,6 +36,7 @@ export default function AdminLoginForm() {
             else
             {
               console.log("Empty data")
+              alert("Credentials didn't match")
             }
         })
     }
